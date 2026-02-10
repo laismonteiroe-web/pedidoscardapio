@@ -697,10 +697,6 @@
             const name = document.getElementById('order-name').value;
             if (!name) return alert('Por favor, informe seu nome!');
             if (activeFulfillment === 'Entrega' && !document.getElementById('delivery-address').value) return alert('Por favor, informe o endereço!');
-            if (!validarAntesDoWhatsApp()) return;
-            const schedText = (activeOrderType === 'Encomenda')
-  ? `\\nAgendamento: ${document.getElementById('order-date').value} às ${document.getElementById('order-time').value}`
-  : '';
             const itemsText = cart.map(i => '- ' + i.qty.toFixed(i.unit === 'kg' ? 1 : 0) + (i.unit === 'kg' ? 'kg' : 'un') + ' • ' + i.name + (i.size ? ' (' + i.size + ')' : '') + (i.flavor ? ' [' + i.flavor + ']' : '') + ' (R$ ' + i.finalPrice.toFixed(2) + '/' + (i.unit === 'kg' ? 'kg' : 'un') + ')').join('\\n');
             let total = cart.reduce((acc, item) => acc + (item.finalPrice * item.qty), 0);
             const deliveryText = activeFulfillment === 'Entrega' ? '\\nTaxa de Entrega: R$ ' + DELIVERY_FEE.toFixed(2) : '';
@@ -708,34 +704,63 @@
             const fulfillmentInfo = activeFulfillment === 'Entrega' ? 'Entrega: ' + document.getElementById('delivery-address').value : 'Retirada: ' + document.getElementById('pickup-location').value;
             const message = 'Novo Pedido • Sabor & Arte\\n' + '__________________________\\n' + 'Cliente: ' + name + '\\n' + 'Tipo: ' + activeOrderType + '\\n' + fulfillmentInfo + deliveryText + '\\n\\n' + 'Seleção:\\n' + itemsText + '\\n\\n' + 'Total: R$ ' + total.toFixed(2) + '\\n' + '*(Sujeito a pesagem final)*';
             window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message), '_blank');
-
         }
-        function configurarRestricoesEncomenda() {
-          const dateInput = document.getElementById('order-date');
-          const timeInput = document.getElementById('order-time');
-          if (!dateInput || !timeInput) return;
+        /* ===== REGRAS: ENCOMENDA com 1 dia e horário 07:30–20:00 ===== */
 
-          // horário permitido para encomendas
-          timeInput.min = "07:30";
-          timeInput.max = "20:00";
+function configurarRestricoesEncomenda() {
+  const dateInput = document.getElementById('order-date');
+  const timeInput = document.getElementById('order-time');
+  if (!dateInput || !timeInput) return;
 
-          // data mínima (amanhã) — em horário LOCAL (sem UTC)
-          const hoje = new Date();
-          const amanha = new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate() + 1);
+  // horário permitido para encomendas
+  timeInput.min = "07:30";
+  timeInput.max = "20:00";
 
-          const yyyy = amanha.getFullYear();
-          const mm = String(amanha.getMonth() + 1).padStart(2, "0");
-          const dd = String(amanha.getDate()).padStart(2, "0");
-          const amanhaISO = `${yyyy}-${mm}-${dd}`;
+  // data mínima (amanhã) para encomendas
+  const hoje = new Date();
+  const amanha = new Date();
+  amanha.setDate(hoje.getDate() + 1);
 
-          dateInput.min = amanhaISO;
+  const amanhaISO = amanha.toISOString().split('T')[0];
+  dateInput.min = amanhaISO;
 
-          // se estiver vazio ou menor que o mínimo, ajusta
-          if (!dateInput.value || dateInput.value < amanhaISO) dateInput.value = amanhaISO;
+  // se estiver vazio ou menor que o mínimo, ajusta
+  if (!dateInput.value || dateInput.value < amanhaISO) dateInput.value = amanhaISO;
 
-          // se horário estiver vazio, sugere um padrão
-          if (!timeInput.value) timeInput.value = "08:00";
-        }
+  // se horário estiver vazio, sugere um padrão
+  if (!timeInput.value) timeInput.value = "08:00";
+}
+
+function validarAntesDoWhatsApp() {
+  // ✅ Pronta Entrega: não exige data/horário
+  if (activeOrderType !== 'Encomenda') return true;
+
+  const dateInput = document.getElementById('order-date');
+  const timeInput = document.getElementById('order-time');
+
+  if (!dateInput.value || !timeInput.value) {
+    alert("Para ENCOMENDA, selecione data e horário 😊");
+    return false;
+  }
+
+  if (timeInput.value < "07:30" || timeInput.value > "20:00") {
+    alert("Horário disponível para encomendas: 07:30 às 20:00 🕰️");
+    return false;
+  }
+
+  const hoje = new Date();
+  const dataEscolhida = new Date(dateInput.value);
+  hoje.setHours(0,0,0,0);
+  dataEscolhida.setHours(0,0,0,0);
+
+  const diffDias = (dataEscolhida - hoje) / (1000 * 60 * 60 * 24);
+  if (diffDias < 1) {
+    alert("Encomendas precisam ser feitas com pelo menos 1 dia de antecedência 🍰");
+    return false;
+  }
+
+  return true;
+}
             const sanitizeId = (name) => name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
    
     

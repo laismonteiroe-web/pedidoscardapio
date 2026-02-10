@@ -342,14 +342,14 @@
 
         // ESTADO DA APLICAÇÃO
         let cart = [];
-        let activeOrderType = 'Pronta Entrega';
+        let activeOrderType = 'Pronta entrega';
         let activeFulfillment = 'Retirada';
         let currentSearch = '';
 
         window.onload = () => {
             renderCategories();
             renderMenu();
-            setOrderType('Pronta Entrega');
+            setOrderType('Pronta entrega');
             setFulfillment('Retirada');
         };
 
@@ -677,7 +677,7 @@
 
         function setOrderType(type) {
             activeOrderType = type;
-            document.getElementById('btn-order-ready').classList.toggle('active', type === 'Pronta Entrega');
+            document.getElementById('btn-order-ready').classList.toggle('active', type === 'Pronta entrega');
             document.getElementById('btn-order-sched').classList.toggle('active', type === 'Encomenda');
             document.getElementById('sched-fields').classList.toggle('hidden', type === 'Pronta entrega');
             updateCartSummary();

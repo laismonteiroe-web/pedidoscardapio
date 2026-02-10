@@ -695,14 +695,28 @@
 
         function sendWhatsAppOrder() {
             const name = document.getElementById('order-name').value;
+            const orderDate = document.getElementById('order-date')?.value || '';
+            const orderTime = document.getElementById('order-time')?.value || '';
             if (!name) return alert('Por favor, complete seu nome');
             if (activeFulfillment === 'Entrega' && !document.getElementById('delivery-address').value) return alert('Por favor, informe o seu endereço');
+            if (activeOrderType !== 'Pronta Entrega' && (!orderDate || !orderTime)) {
+            return alert('Por favor, informe a data e o horário da encomenda');
             const itemsText = cart.map(i => '- ' + i.qty.toFixed(i.unit === 'kg' ? 1 : 0) + (i.unit === 'kg' ? 'kg' : 'un') + ' • ' + i.name + (i.size ? ' (' + i.size + ')' : '') + (i.flavor ? ' [' + i.flavor + ']' : '') + ' (R$ ' + i.finalPrice.toFixed(2) + '/' + (i.unit === 'kg' ? 'kg' : 'un') + ')').join('\n');
             let total = cart.reduce((acc, item) => acc + (item.finalPrice * item.qty), 0);
             const deliveryText = activeFulfillment === 'Entrega' ? '\nTaxa de Entrega: R$ ' + DELIVERY_FEE.toFixed(2) : '';
             if(activeFulfillment === 'Entrega') total += DELIVERY_FEE;
             const fulfillmentInfo = activeFulfillment === 'Entrega' ? 'Entrega: ' + document.getElementById('delivery-address').value : 'Retirada: ' + document.getElementById('pickup-location').value;
-            const message = 'Novo Pedido • Delícias da Vovó' + '__________________________\n' + 'Cliente: ' + name + '\n' + 'Tipo: ' + activeOrderType + '\n' + fulfillmentInfo + deliveryText + '\n\n' + 'Pedido:\n' + itemsText + '\n\n' + 'Total Aproximado: R$ ' + total.toFixed(2) + '\n' + '*(Sujeito a pesagem final)*';
+            const message =   'Novo Pedido • Delícias da Vovó\n' +
+  '__________________________\n' +
+  'Cliente: ' + name + '\n' +
+  'Tipo: ' + activeOrderType + '\n' +
+  (activeOrderType !== 'Pronta Entrega'
+    ? ('Data: ' + orderDate + '\n' + 'Horário: ' + orderTime + '\n')
+    : '') +
+  fulfillmentInfo + deliveryText + '\n\n' +
+  'Pedido:\n' + itemsText + '\n\n' +
+  'Total Aproximado: R$ ' + total.toFixed(2) + '\n' +
+  '*(Sujeito a pesagem final)*';
             window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message), '_blank');
         }
         function configurarRestricoesEncomenda() {

@@ -215,14 +215,14 @@
                 <!-- Formulário de Checkout -->
                 <div class="space-y-4 sm:space-y-6">
                     <div class="space-y-2">
-                        <label class="text-[10px] uppercase font-bold text-[#9E764E] ml-2 tracking-[0.2em]">Seu nome: </label>
+                        <label class="text-[10px] uppercase font-bold text-[#9E764E] ml-2 tracking-[0.2em]">Identificação </label>
                         <input type="text" id="order-name" placeholder="Como podemos te chamar?" class="w-full bg-[#F3EEE8]/50 border border-[#9E764E]/10 rounded-2xl px-5 py-3 text-sm focus:outline-none focus:ring-4 focus:ring-[#9E764E]/5 transition-all">
                     </div>
                     
                     <div class="space-y-2">
                         <label class="text-[10px] uppercase font-bold text-[#9E764E] ml-2 tracking-[0.2em]">Disponibilidade</label>
                         <div class="toggle-container">
-                            <button onclick="setOrderType('Para agora')" id="btn-order-ready" class="toggle-btn active">Para agora</button>
+                            <button onclick="setOrderType('Pronta entrega')" id="btn-order-ready" class="toggle-btn active">Pronta entrega</button>
                             <button onclick="setOrderType('Encomenda')" id="btn-order-sched" class="toggle-btn">Encomenda</button>
                         </div>
                     </div>
@@ -679,7 +679,7 @@
             activeOrderType = type;
             document.getElementById('btn-order-ready').classList.toggle('active', type === 'Pronta Entrega');
             document.getElementById('btn-order-sched').classList.toggle('active', type === 'Encomenda');
-            document.getElementById('sched-fields').classList.toggle('hidden', type === 'Pronta Entrega');
+            document.getElementById('sched-fields').classList.toggle('hidden', type === 'Pronta entrega');
             updateCartSummary();
             if (type === 'Encomenda') configurarRestricoesEncomenda();
         }

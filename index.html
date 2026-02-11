@@ -291,7 +291,7 @@
         const CATEGORIES = [
             'Cestas de café da manhã', 'Coffee Breaks', 'Mini salgados', 
             'Salgados assados', 'Lanches frios', 'Bolos caseiros', 'Tortas & Quiches',
-            'Bebidas', 'Doces panificação', 'Pão de bolinha'
+            'Bebidas', 'Doces panificação', 'Pão de bolinha','Bolachas & biscoitos','Especiais de Natal','Mini sobremesas','Sobremesas unitárias','Bolos gelados','Tortas doces','Sobremesas'
         ];
         
         const MENU_ITEMS = [
@@ -329,16 +329,18 @@
                 flavors: ['Coxinha', 'Bolinha de Queijo', 'Risólis de Milho', 'Kibe Tradicional']
             },
             { 
-                id: 'pãodequeijo', 
-                name: 'Pão de Queijo Mini', 
-                description: 'Receita mineira autêntica com queijo canastra curado.', 
+                id: 'paodequeijo', 
+                name: 'Pão de queijo', 
+                description: 'Pão de queijo', 
                 category: 'Mini salgados', 
                 image: 'https://res.cloudinary.com/ds53z2vv8/image/upload/v1769811066/IMG_2987_1_jjjdvz.jpg', 
                 price: 1.00, 
                 priceKg: 69.00, 
-                units: ['un', 'kg'] },
+                units: ['un', 'kg'] 
+            },
+           
                { 
-                id: 'pãodequeijoespeciais', 
+                id: 'paodequeijoespeciais', 
                 name: 'Pão de queijo Especiais', 
                 description: 'Pão de queijos gourmets com a opção de recheados, folhados', 
                 category: 'Mini salgados', 
@@ -1187,7 +1189,385 @@
   price: 4.50,
   units: ['un'],
   flavors: ['Doce de Leite', 'Brigadeiro', 'Beijinho']
+},
+            // =====================
+// BOLACHAS & BISCOITOS
+// =====================
+{
+  id: 'bb_bolachinhas_artesanais',
+  name: 'Bolachinhas Artesanais',
+  description: 'Bolachinhas artesanais (veja as opções).',
+  category: 'Bolachas & biscoitos',
+  image: 'https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&q=80&w=900',
+  price: 0.70,
+  priceKg: 60.00,
+  units: ['un', 'kg']
+},
+{
+  id: 'bb_petit_four',
+  name: 'Petit Four',
+  description: 'Aprox. 15g cada unidade.',
+  category: 'Bolachas & biscoitos',
+  image: 'https://images.unsplash.com/photo-1542826438-8b3e3d6a0d3f?auto=format&fit=crop&q=80&w=900',
+  price: 0.70,
+  priceKg: 60.00,
+  units: ['un', 'kg'],
+  flavors: ['Canela', 'Chocolate', 'Baunilha', 'Baunilha com Goiabada']
+},
+{
+  id: 'bb_petit_four_decorado',
+  name: 'Petit Four Decorado',
+  description: 'Massa amanteigada de baunilha ou chocolate, confeitado com glacê.',
+  category: 'Bolachas & biscoitos',
+  image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=900',
+  price: 0.70,
+  priceKg: 98.00,
+  units: ['un', 'kg'],
+  flavors: ['Baunilha', 'Chocolate']
+},
+{
+  id: 'bb_cookies',
+  name: 'Cookies',
+  description: 'Cookies artesanais com gotas de chocolate.',
+  category: 'Bolachas & biscoitos',
+  image: 'https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&q=80&w=900',
+  price: 0.70,
+  priceKg: 60.00,
+  units: ['un', 'kg'],
+  flavors: [
+    'Baunilha + gotas (chocolate preto)',
+    'Baunilha + gotas (chocolate branco)',
+    'Chocolate + gotas (chocolate preto)',
+    'Chocolate + gotas (chocolate branco)'
+  ]
+},
+{
+  id: 'bb_mantecal',
+  name: 'Mantecal',
+  description: 'Massa amanteigada com gota de goiabada ao centro.',
+  category: 'Bolachas & biscoitos',
+  image: 'https://images.unsplash.com/photo-1542826438-8b3e3d6a0d3f?auto=format&fit=crop&q=80&w=900',
+  price: 0.70,
+  priceKg: 60.00,
+  units: ['un', 'kg']
+},
+{
+  id: 'bb_ferradura',
+  name: 'Ferradura',
+  description: 'Formato de ferradura com pontas mergulhadas no chocolate.',
+  category: 'Bolachas & biscoitos',
+  image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=900',
+  price: 0.70,
+  priceKg: 60.00,
+  units: ['un', 'kg']
+},
+{
+  id: 'bb_sequilho',
+  name: 'Sequilho',
+  description: 'Massa de sequilho com raspas de limão.',
+  category: 'Bolachas & biscoitos',
+  image: 'https://images.unsplash.com/photo-1542826438-8b3e3d6a0d3f?auto=format&fit=crop&q=80&w=900',
+  price: 0.70,
+  priceKg: 60.00,
+  units: ['un', 'kg']
+},
+{
+  id: 'bb_broinha_fuba',
+  name: 'Broinha de Fubá',
+  description: 'Broinha de fubá tradicional e caseira.',
+  category: 'Bolachas & biscoitos',
+  image: 'https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&q=80&w=900',
+  price: 0.70,
+  priceKg: 42.00,
+  units: ['un', 'kg'],
+  flavors: ['Tradicional', 'Com gotas de Chocolate', 'Com Goiabada']
+},
+{
+  id: 'bb_belisca',
+  name: 'Beliscão',
+  description: 'Massa amanteigada recheada com pedaço de goiabada.',
+  category: 'Bolachas & biscoitos',
+  image: 'https://images.unsplash.com/photo-1542826438-8b3e3d6a0d3f?auto=format&fit=crop&q=80&w=900',
+  price: 0.70,
+  priceKg: 70.00,
+  units: ['un', 'kg']
+},
+
+// =====================
+// ESPECIAIS DE NATAL
+// =====================
+{
+  id: 'en_panetone',
+  name: 'Panetone',
+  description: 'Panetone caseiro com frutas cristalizadas.',
+  category: 'Especiais de Natal',
+  image: 'https://images.unsplash.com/photo-1541976076758-347942db1974?auto=format&fit=crop&q=80&w=900',
+  price: 16.80,
+  units: ['un']
+},
+{
+  id: 'en_chocotone',
+  name: 'Chocotone',
+  description: 'Chocotone caseiro com gotas de chocolate.',
+  category: 'Especiais de Natal',
+  image: 'https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&q=80&w=900',
+  price: 17.80,
+  units: ['un']
+},
+{
+  id: 'en_mini_panetone',
+  name: 'Mini Panetone',
+  description: 'Mini panetone caseiro com frutas cristalizadas.',
+  category: 'Especiais de Natal',
+  image: 'https://images.unsplash.com/photo-1541976076758-347942db1974?auto=format&fit=crop&q=80&w=900',
+  price: 5.00,
+  units: ['un']
+},
+{
+  id: 'en_mini_chocotone',
+  name: 'Mini Chocotone',
+  description: 'Mini chocotone caseiro com gotas de chocolate.',
+  category: 'Especiais de Natal',
+  image: 'https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&q=80&w=900',
+  price: 5.50,
+  units: ['un']
+},
+{
+  id: 'en_rabanada',
+  name: 'Rabanada',
+  description: 'Fatias douradas embebidas em leite e leite condensado, assadas e polvilhadas no açúcar e canela.',
+  category: 'Especiais de Natal',
+  image: 'https://images.unsplash.com/photo-1542826438-8b3e3d6a0d3f?auto=format&fit=crop&q=80&w=900',
+  priceKg: 58.00,
+  units: ['kg']
+},
+
+// =====================
+// MINI SOBREMESAS
+// =====================
+{
+  id: 'ms_carolinas',
+  name: 'Carolinas',
+  description: 'Carolinhas com recheios variados.',
+  category: 'Mini sobremesas',
+  image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=900',
+  price: 2.80,
+  priceKg: 69.00,
+  units: ['un', 'kg'],
+  flavors: ['Doce de Leite', 'Creme', 'Chocolate', 'Limão']
+},
+{
+  id: 'ms_mini_tortinha_doce',
+  name: 'Mini Tortinha Doce',
+  description: 'Mini tortinha doce com sabores variados.',
+  category: 'Mini sobremesas',
+  image: 'https://images.unsplash.com/photo-1604908177225-6a9f6fb1adbf?auto=format&fit=crop&q=80&w=900',
+  price: 4.90,
+  units: ['un'],
+  flavors: ['Limão', 'Morango', 'Maçã', 'Maracujá']
+},
+
+// =====================
+// SOBREMESAS UNITÁRIAS
+// =====================
+{
+  id: 'su_salada_fruta',
+  name: 'Salada de Fruta no Pote',
+  description: 'Frutas picadas no pote com açúcar e suco de laranja.',
+  category: 'Sobremesas unitárias',
+  image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&q=80&w=900',
+  price: 7.50,
+  units: ['un'],
+  sizes: [
+    { label: 'Pote pequeno', price: 5.00 },
+    { label: 'Pote tradicional', price: 7.50 }
+  ]
+},
+{
+  id: 'su_bomba',
+  name: 'Bomba',
+  description: 'Bomba recheada com opções clássicas.',
+  category: 'Sobremesas unitárias',
+  image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=900',
+  price: 8.50,
+  units: ['un'],
+  flavors: ['Doce de Leite', 'Creme', 'Chocolate', 'Limão']
+},
+{
+  id: 'su_tortinha_unit',
+  name: 'Tortinha Unitária',
+  description: 'Tortinha unitária com sabores variados.',
+  category: 'Sobremesas unitárias',
+  image: 'https://images.unsplash.com/photo-1604908177225-6a9f6fb1adbf?auto=format&fit=crop&q=80&w=900',
+  price: 14.50,
+  units: ['un'],
+  flavors: ['Limão', 'Morango', 'Maçã', 'Maracujá']
+},
+{
+  id: 'su_mousse_pote',
+  name: 'Mousse no Potinho',
+  description: 'Mousse cremoso no potinho.',
+  category: 'Sobremesas unitárias',
+  image: 'https://images.unsplash.com/photo-1541976076758-347942db1974?auto=format&fit=crop&q=80&w=900',
+  price: 9.50,
+  units: ['un']
+},
+{
+  id: 'su_quindim',
+  name: 'Quindim',
+  description: 'Quindim tradicional.',
+  category: 'Sobremesas unitárias',
+  image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=900',
+  price: 7.50,
+  units: ['un']
+},
+{
+  id: 'su_banoffe_unit',
+  name: 'Banoffe Unitário',
+  description: 'Banoffe no potinho (unitário).',
+  category: 'Sobremesas unitárias',
+  image: 'https://images.unsplash.com/photo-1541976076758-347942db1974?auto=format&fit=crop&q=80&w=900',
+  price: 9.80,
+  units: ['un']
+},
+{
+  id: 'su_gelado_abacaxi',
+  name: 'Gelado de Abacaxi',
+  description: 'Sobremesa gelada de abacaxi (unitária).',
+  category: 'Sobremesas unitárias',
+  image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&q=80&w=900',
+  price: 9.80,
+  units: ['un']
+},
+{
+  id: 'su_doce_potinho_caseiro',
+  name: 'Doce de Potinho Caseiro',
+  description: 'Aprox. 160g.',
+  category: 'Sobremesas unitárias',
+  image: 'https://images.unsplash.com/photo-1541976076758-347942db1974?auto=format&fit=crop&q=80&w=900',
+  price: 6.50,
+  units: ['un'],
+  flavors: ['Abóbora', 'Mamão']
+},
+
+// =====================
+// BOLOS GELADOS
+// =====================
+{
+  id: 'bg_cenoura_cremoso',
+  name: 'Bolo de Cenoura Cremoso',
+  description: 'Bolo gelado cremoso.',
+  category: 'Bolos gelados',
+  image: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9f?auto=format&fit=crop&q=80&w=900',
+  priceKg: 62.00,
+  units: ['kg']
+},
+{
+  id: 'bg_milho_cremoso',
+  name: 'Bolo de Milho Cremoso',
+  description: 'Bolo gelado cremoso.',
+  category: 'Bolos gelados',
+  image: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9f?auto=format&fit=crop&q=80&w=900',
+  priceKg: 62.00,
+  units: ['kg']
+},
+{
+  id: 'bg_gelado_embrulhado',
+  name: 'Bolo Gelado Embrulhado',
+  description: 'Bolo gelado embrulhado.',
+  category: 'Bolos gelados',
+  image: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9f?auto=format&fit=crop&q=80&w=900',
+  priceKg: 85.00,
+  units: ['kg']
+},
+{
+  id: 'bg_papai_noel',
+  name: 'Bolo Papai Noel',
+  description: 'Bolo temático.',
+  category: 'Bolos gelados',
+  image: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9f?auto=format&fit=crop&q=80&w=900',
+  priceKg: 98.00,
+  units: ['kg']
+},
+{
+  id: 'bg_confeitado',
+  name: 'Bolo Confeitado (Sabores)',
+  description: 'Bolo confeitado com sabores variados.',
+  category: 'Bolos gelados',
+  image: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9f?auto=format&fit=crop&q=80&w=900',
+  priceKg: 89.00,
+  units: ['kg']
+},
+{
+  id: 'bg_naked_cake',
+  name: 'Naked Cake',
+  description: 'Naked cake artesanal.',
+  category: 'Bolos gelados',
+  image: 'https://images.unsplash.com/photo-1563729784474-d77dbb933a9f?auto=format&fit=crop&q=80&w=900',
+  priceKg: 98.00,
+  units: ['kg']
+},
+
+// =====================
+// TORTAS DOCES
+// =====================
+{
+  id: 'td_torta_doce_frutas',
+  name: 'Torta Doce (Frutas)',
+  description: 'Torta doce com frutas.',
+  category: 'Tortas doces',
+  image: 'https://images.unsplash.com/photo-1604908177225-6a9f6fb1adbf?auto=format&fit=crop&q=80&w=900',
+  priceKg: 82.00,
+  units: ['kg'],
+  flavors: ['Morango', 'Limão', 'Maracujá', 'Maçã']
+},
+{
+  id: 'td_torta_holandesa',
+  name: 'Torta Holandesa',
+  description: 'Torta holandesa artesanal.',
+  category: 'Tortas doces',
+  image: 'https://images.unsplash.com/photo-1541976076758-347942db1974?auto=format&fit=crop&q=80&w=900',
+  priceKg: 82.00,
+  units: ['kg']
+},
+{
+  id: 'td_chocolate_nozes',
+  name: 'Chocolate com Nozes',
+  description: 'Torta/Doce de chocolate com nozes.',
+  category: 'Tortas doces',
+  image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&q=80&w=900',
+  priceKg: 94.00,
+  units: ['kg']
+},
+{
+  id: 'td_damasco_ganache',
+  name: 'Damasco com Ganache',
+  description: 'Torta/Doce de damasco com ganache.',
+  category: 'Tortas doces',
+  image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&q=80&w=900',
+  priceKg: 94.00,
+  units: ['kg']
+},
+{
+  id: 'pv_paves',
+  name: 'Pavês',
+  description: 'Pavê artesanal.',
+  category: 'Sobremesas',
+  image: 'https://images.unsplash.com/photo-1541976076758-347942db1974?auto=format&fit=crop&q=80&w=900',
+  priceKg: 78.00,
+  units: ['kg']
+},
+
+{
+  id: 'dc_doce_caseiro',
+  name: 'Doce Caseiro',
+  description: 'Doce caseiro tradicional.',
+  category: 'Sobremesas',
+  image: 'https://images.unsplash.com/photo-1541976076758-347942db1974?auto=format&fit=crop&q=80&w=900',
+  priceKg: 42.00,
+  units: ['kg']
 }
+
 
 
 

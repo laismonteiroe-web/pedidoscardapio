@@ -291,7 +291,7 @@
         const CATEGORIES = [
             'Cestas de café da manhã', 'Coffee Breaks', 'Mini salgados', 
             'Salgados assados', 'Lanches frios', 'Bolos caseiros', 'Tortas & Quiches',
-            'Bebidas', 'Doces panificação'
+            'Bebidas', 'Doces panificação', 'Pão de bolinha'
         ];
         
         const MENU_ITEMS = [
@@ -703,24 +703,6 @@
   units: ['un', 'kg'],
   flavors: ['Presunto e Queijo', 'Salame e Queijo', 'Peito de Peru e Queijo', 'Frango']
 },
-
-// =====================
-// TORTAS & QUICHES
-// =====================
-{
-  id: 'tq_torta_liquidificador',
-  name: 'Salgados assados',
-  description: 'Redonda ou quadrada. Cada pedaço ~100g (aprox.).',
-  category: 'Tortas & Quiches',
-  image: 'https://images.unsplash.com/photo-1604908177225-6a9f6fb1adbf?auto=format&fit=crop&q=80&w=900',
-  priceKg: 69.00,
-  units: ['kg'],
-  sizes: [
-    { label: 'Até 800g', price: 52.00 },
-    { label: 'Até 1kg', price: 65.00 },
-    { label: 'Até 1,2kg', price: 78.00 }
-  ]
-},
             // =====================
 // TORTAS & QUICHES
 // =====================
@@ -730,8 +712,9 @@
   description: 'Redonda ou quadrada. Cada pedaço ~100g (aprox.).',
   category: 'Tortas & Quiches',
   image: 'https://images.unsplash.com/photo-1604908177225-6a9f6fb1adbf?auto=format&fit=crop&q=80&w=900',
-  priceKg: 69.00,
-  units: ['kg'],
+  price: 65.00, // referência (o que manda é sizes[0])
+  units: ['un'],
+  flavors: ['Frango com Catupiry', 'Presunto e Queijo com Catupiry'],
   sizes: [
     { label: 'Até 800g', price: 52.00 },
     { label: 'Até 1kg', price: 65.00 },
@@ -744,8 +727,9 @@
   description: 'Massa amanteigada (redonda ou quadrada). Cada pedaço ~100g (aprox.).',
   category: 'Tortas & Quiches',
   image: 'https://images.unsplash.com/photo-1604908177340-3f7a3a32b678?auto=format&fit=crop&q=80&w=900',
-  priceKg: 69.00,
-  units: ['kg'],
+  price: 65.00,
+  units: ['un'],
+  flavors: ['Frango com Catupiry', 'Presunto e Queijo com Catupiry'],
   sizes: [
     { label: 'Até 800g', price: 52.00 },
     { label: 'Até 1kg', price: 65.00 },
@@ -758,8 +742,9 @@
   description: 'Torta redonda. Cada pedaço ~100g (aprox.).',
   category: 'Tortas & Quiches',
   image: 'https://images.unsplash.com/photo-1604908177212-8f75b2c7c2d4?auto=format&fit=crop&q=80&w=900',
-  priceKg: 69.00,
-  units: ['kg'],
+  price: 65.00,
+  units: ['un'],
+  flavors: ['Frango com Catupiry', 'Presunto e Queijo com Catupiry'],
   sizes: [
     { label: 'Até 800g', price: 52.00 },
     { label: 'Até 1kg', price: 65.00 },
@@ -772,8 +757,9 @@
   description: 'Redonda ou quadrada. Cada pedaço ~100g (aprox.).',
   category: 'Tortas & Quiches',
   image: 'https://images.unsplash.com/photo-1604908177225-6a9f6fb1adbf?auto=format&fit=crop&q=80&w=900',
-  priceKg: 69.00,
-  units: ['kg'],
+  price: 65.00,
+  units: ['un'],
+  flavors: ['Frango com Catupiry', 'Presunto e Queijo com Catupiry'],
   sizes: [
     { label: 'Até 800g', price: 52.00 },
     { label: 'Até 1kg', price: 65.00 },

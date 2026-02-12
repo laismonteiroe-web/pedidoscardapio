@@ -356,9 +356,9 @@
                 description: 'Assado artesanal: Esfirra de carne, Bauru ou Enroladinho.', 
                 category: 'Salgados assados', 
                 image: 'https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80&w=400', 
-                price: 8.50, 
+                price: 9.90, 
                 units: ['un'], 
-                flavors: ['Carne', 'Frango c/ Requeijão', 'Presunto e Queijo'] },
+                flavors: ['Esfirra de Carne', 'Esfirra de Frango', 'Bauru', 'Hamburguete'] },
            
             { id: 'dp1', 
              name: 'Mini Sonho', 
@@ -434,23 +434,13 @@
 },
 {
   id: 'ms_empada_podre',
-  name: 'Mini Empada Massa Podre',
+  name: 'Mini Empada Massa',
   description: 'Empadinha amanteigada, clássica e delicada.',
   category: 'Mini salgados',
   image: 'https://images.unsplash.com/photo-1604908177593-f74665b0def0?auto=format&fit=crop&q=80&w=900',
   price: 2.50,
   units: ['un'],
-  flavors: ['Palmito', 'Frango']
-},
-{
-  id: 'ms_empada_fina',
-  name: 'Mini Empada (Massa Fina)',
-  description: 'Empadinha de massa fina, leve e bem recheada.',
-  category: 'Mini salgados',
-  image: 'https://images.unsplash.com/photo-1625944525533-473f1bfbf060?auto=format&fit=crop&q=80&w=900',
-  price: 2.50,
-  units: ['un'],
-  flavors: ['Palmito', 'Frango']
+  flavors: ['Massa Podre Palmito', 'Massa Podre Frango', 'Massa Fina Palmito', 'Massa Fina Frango']
 },
 {
   id: 'ms_cuscuz',
@@ -528,7 +518,7 @@
   id: 'ms_empada_unit',
   name: 'Empada Unitária',
   description: 'Massa podre (amanteigada) com recheios clássicos.',
-  category: 'Mini salgados',
+  category: 'Salgados assados'
   image: 'https://res.cloudinary.com/ds53z2vv8/image/upload/v1770002063/259FC56E-2B7B-439C-9502-1EA8B960AB55_bhpmoi.pngqqqqqqqq',
   price: 9.50,
   units: ['un'],
@@ -538,7 +528,7 @@
   id: 'ms_quiche_unit',
   name: 'Quiche Unitário',
   description: 'Quiche unitária cremosa com recheios especiais.',
-  category: 'Mini salgados',
+  category: 'Salgados assados',
   image: 'https://res.cloudinary.com/ds53z2vv8/image/upload/v1770052073/B4117B42-4F47-4483-BF81-DA145B525EDE_u1grdb.png',
   price: 9.90,
   units: ['un'],
@@ -600,9 +590,19 @@
   priceKg: 59.00,
   units: ['un', 'kg']
 },
+        {
+  id: 'sa_trouxao',
+  name: 'Trouxão de frango',
+  description: 'Massa folha recheada de frango com catupiry.',
+  category: 'Salgados assados',
+  image: 'https://res.cloudinary.com/ds53z2vv8/image/upload/v1770845316/WhatsApp_Image_2026-02-11_at_15.40.56_m2l73i.jpg',
+  price: 8.50,
+  priceKg: 59.00,
+  units: ['un', 'kg']
+},
 {
   id: 'sa_pizza_enrolada',
-  name: 'Pizza Enrolada (pedaço)',
+  name: 'Pizza Enrolada',
   description: 'Massa salgada recheada: presunto e queijo ou mortadela e queijo.',
   category: 'Salgados assados',
   image: 'https://res.cloudinary.com/ds53z2vv8/image/upload/v1770845312/WhatsApp_Image_2026-02-11_at_15.40.56_1_kodfbj.jpg',
@@ -612,7 +612,7 @@
 },
 {
   id: 'sa_focaccia',
-  name: 'Focaccia (pedaço)',
+  name: 'Focaccia',
   description: 'Massa tipo pizza com rúcula, tomate seco e queijo branco.',
   category: 'Salgados assados',
   image: 'https://images.unsplash.com/photo-1604908177340-3f7a3a32b678?auto=format&fit=crop&q=80&w=900',
@@ -632,10 +632,10 @@
 },
 {
   id: 'sa_torta_pedaco',
-  name: 'Torta (pedaço)',
+  name: 'Torta em pedaço',
   description: 'Pedaço de torta salgada: frango com catupiry ou presunto e queijo com catupiry.',
   category: 'Salgados assados',
-  image: 'https://images.unsplash.com/photo-1604908177225-6a9f6fb1adbf?auto=format&fit=crop&q=80&w=900',
+  image: 'https://res.cloudinary.com/ds53z2vv8/image/upload/v1770056891/A7661BB4-D8A0-4754-9282-66670CFEA24D_y6kqjj.png',
   price: 9.90,
   units: ['un'],
   flavors: ['Frango com Catupiry', 'Presunto e Queijo com Catupiry']
@@ -657,7 +657,7 @@
 {
   id: 'lf_baguete',
   name: 'Lanche na Baguete',
-  description: 'Baguete recheada + alface, tomate e maionese.',
+  description: 'Lanche na baguete de 60 cm. Rende mais ou menos 22 pedaços. Recheada + alface, tomate e maionese.',
   category: 'Lanches frios',
   image: 'https://res.cloudinary.com/ds53z2vv8/image/upload/v1770058831/B0831590-43D0-48B8-80DC-BF637D97AD64_ihgvmr.png',
   price: 75.00,
@@ -848,18 +848,10 @@
   price: 4.00,
   priceKg: 68.00,
   units: ['un', 'kg'],
-  flavors: ['Chocolate', 'Doce de Nozes']
-},
-{
-  id: 'dp_croissant_doce_unit',
-  name: 'Croissant Doce Unitário',
-  description: 'Croissant doce recheado.',
-  category: 'Doces panificação',
-  image: 'https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&q=80&w=900',
-  price: 8.00,
-  priceKg: 68.00,
-  units: ['un', 'kg'],
-  flavors: ['Chocolate', 'Doce de Nozes']
+  flavors: ['Chocolate', 'Doce de Nozes'],
+  sizes: [
+    { label: 'Mini', price: 4.00 },
+    { label: 'Tradicional', price: 9.50 } ]
 },
 {
   id: 'dp_cupcake',
@@ -1141,10 +1133,9 @@
   image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=900',
   price: 3.50,
   units: ['un'],
-  sizes: [
+      sizes: [
     { label: 'Mini', price: 3.50 },
-    { label: 'Tradicional', price: 9.50 }
-  ]
+    { label: 'Tradicional', price: 9.50 } ]
 },
 {
   id: 'df_mini_docinhos',

@@ -1880,8 +1880,31 @@
             return `
                 <div class="product-card group flex flex-col h-full overflow-hidden">
                     <div class="relative h-56 overflow-hidden">
-                        <img src="${item.image}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1s]">
-                    </div>
+  <img 
+    id="img-${item.id}" 
+    src="${(item.images && item.images.length ? item.images[0] : item.image)}"
+    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1s]"
+  >
+
+  ${((item.images && item.images.length > 1) ? `
+    <button onclick="prevImage('${item.id}')" class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#241B15] w-9 h-9 rounded-full shadow-md flex items-center justify-center active:scale-95">
+      <i class="fas fa-chevron-left text-xs"></i>
+    </button>
+    <button onclick="nextImage('${item.id}')" class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-[#241B15] w-9 h-9 rounded-full shadow-md flex items-center justify-center active:scale-95">
+      <i class="fas fa-chevron-right text-xs"></i>
+    </button>
+
+    <div class="absolute bottom-3 left-0 right-0 flex justify-center gap-2">
+      ${item.images.map((_, idx) => `
+        <button onclick="setImage('${item.id}', ${idx})"
+          id="dot-${item.id}-${idx}"
+          class="w-2.5 h-2.5 rounded-full ${idx === 0 ? 'bg-white' : 'bg-white/40'} shadow"
+          aria-label="Imagem ${idx+1}">
+        </button>
+      `).join('')}
+    </div>
+  ` : '')}
+</div>
                     <div class="p-8 flex flex-col flex-grow">
                         <div class="mb-5">
                             <h3 class="text-2xl serif-font mb-2 group-hover:text-[#9E764E] transition-colors">${item.name}</h3>
@@ -2199,7 +2222,52 @@
         }
             const sanitizeId = (name) => name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
    
-    
+    // ======= GALERIA DE IMAGENS POR ITEM =======
+const imageIndexById = {}; // { [itemId]: currentIndex }
+
+function getItemImages(id) {
+  const item = MENU_ITEMS.find(i => i.id === id);
+  if (!item) return [];
+  // Suporta tanto item.images quanto item.image antigo
+  return (item.images && item.images.length) ? item.images : (item.image ? [item.image] : []);
+}
+
+function setImage(id, idx) {
+  const imgs = getItemImages(id);
+  if (!imgs.length) return;
+
+  const max = imgs.length - 1;
+  const clamped = Math.max(0, Math.min(idx, max));
+  imageIndexById[id] = clamped;
+
+  const imgEl = document.getElementById(`img-${id}`);
+  if (imgEl) imgEl.src = imgs[clamped];
+
+  // Atualiza bolinhas
+  imgs.forEach((_, i) => {
+    const dot = document.getElementById(`dot-${id}-${i}`);
+    if (dot) {
+      dot.classList.toggle('bg-white', i === clamped);
+      dot.classList.toggle('bg-white/40', i !== clamped);
+    }
+  });
+}
+
+function nextImage(id) {
+  const imgs = getItemImages(id);
+  if (imgs.length <= 1) return;
+  const cur = imageIndexById[id] ?? 0;
+  const next = (cur + 1) % imgs.length;
+  setImage(id, next);
+}
+
+function prevImage(id) {
+  const imgs = getItemImages(id);
+  if (imgs.length <= 1) return;
+  const cur = imageIndexById[id] ?? 0;
+  const prev = (cur - 1 + imgs.length) % imgs.length;
+  setImage(id, prev);
+}
     
     
     

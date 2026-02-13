@@ -1963,35 +1963,37 @@
         }
 
         function setCardSize(id, idx) {
-            document.querySelectorAll(`[id^="size-${id}-"]`).forEach(btn => {
-                btn.classList.remove('bg-[#9E764E]', 'text-white');
-                btn.classList.add('text-[#9E764E]/60');
-            });
-            const selectedBtn = document.getElementById(`size-${id}-${idx}`);
-            selectedBtn.classList.add('bg-[#9E764E]', 'text-white');
-            selectedBtn.classList.remove('text-[#9E764E]/60');
-            updatePricePreview(id);
-            // atualizar imagem ao trocar tamanho
-const item = MENU_ITEMS.find(i => i.id === id);
-const imgEl = document.getElementById(`img-${id}`);
+  document.querySelectorAll(`[id^="size-${id}-"]`).forEach(btn => {
+    btn.classList.remove('bg-[#9E764E]', 'text-white');
+    btn.classList.add('text-[#9E764E]/60');
+  });
 
-if (imgEl) {
-  const sizeImg = item?.sizes?.[idx]?.image;
-  if (sizeImg) {
-    imgEl.src = sizeImg;
-  } else {
-    imgEl.src = (item.images && item.images.length ? item.images[0] : item.image);
+  const selectedBtn = document.getElementById(`size-${id}-${idx}`);
+  selectedBtn.classList.add('bg-[#9E764E]', 'text-white');
+  selectedBtn.classList.remove('text-[#9E764E]/60');
+
+  updatePricePreview(id);
+
+  // atualizar imagem ao trocar tamanho
+  const item = MENU_ITEMS.find(i => i.id === id);
+  const imgEl = document.getElementById(`img-${id}`);
+
+  if (imgEl && item) {
+    const sizeImg = item?.sizes?.[idx]?.image;
+    imgEl.src = sizeImg
+      ? sizeImg
+      : (item.images && item.images.length ? item.images[0] : item.image);
+  }
+
+  // atualizar descrição
+  if (!item || !item.sizes) return;
+
+  const desc = document.getElementById(`desc-${id}`);
+  if (desc && item.sizes[idx] && item.sizes[idx].description) {
+    desc.innerText = item.sizes[idx].description;
   }
 }
-            const item = MENU_ITEMS.find(i => i.id === id);
-if (!item || !item.sizes) return;
 
-const desc = document.getElementById(`desc-${id}`);
-if (desc && item.sizes[idx] && item.sizes[idx].description) {
-  desc.innerText = item.sizes[idx].description;
-}
-
-        }
 
         function changeQtyUI(id, delta) {
             const input = document.getElementById(`qty-${id}`);

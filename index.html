@@ -345,10 +345,10 @@
                 description: 'Pão de queijos gourmets com a opção de recheados, folhados', 
                 category: 'Mini salgados', 
                 image: 'https://res.cloudinary.com/ds53z2vv8/image/upload/v1769892835/40234816-5549-4D8F-90A1-094C02306014_mfjpp6.png', 
-                price: 2.00, 
+                price: 2.20, 
                 priceKg: 78.00, 
                 units: ['un', 'kg'] ,
-                flavors: ['Parmesão', 'Recheado de catupiry', 'Recheado de frango', 'Folhado de queijo', 'Folhado de presunto']
+                flavors: ['Parmesão', 'Recheado de catupiry', 'Recheado de frango', 'Folhado de queijo', 'Folhado de presunto', 'Chipa']
             },
             { 
                 id: 'sa1', 
@@ -498,16 +498,6 @@
   flavors: ['Presunto', 'Calabresa', 'Frango', 'Peito de Peru', 'Queijo', 'Salsicha']
 },
 {
-  id: 'ms_chipa',
-  name: 'Chipa',
-  description: 'Lembra pão de queijo, com mais polvilho e parmesão na massa.',
-  category: 'Mini salgados',
-  image: 'https://images.unsplash.com/photo-1604908554217-2f85ac2b33cd?auto=format&fit=crop&q=80&w=900',
-  price: 2.20,
-  priceKg: 75.00,
-  units: ['un', 'kg']
-},
-{
   id: 'ms_brusquetas',
   name: 'Brusquetas',
   description: 'Torradas com tomate, parmesão e manjericão.',
@@ -542,15 +532,6 @@
 // SALGADOS ASSADOS
 // =====================
 {
-  id: 'sa_hamburguete',
-  name: 'Hamburguete',
-  description: 'Salgado assado recheado de hambúrguer, tomate, presunto e queijo.',
-  category: 'Salgados assados',
-  image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&q=80&w=900',
-  price: 8.50,
-  units: ['un']
-},
-{
   id: 'sa_esfirra_aberta',
   name: 'Esfirra Aberta',
   description: 'Esfirra aberta com recheios tradicionais.',
@@ -584,23 +565,14 @@
   flavors: ['Presunto e Queijo', 'Frango', 'Queijo', 'Peito de Peru']
 },
 {
-  id: 'sa_napoleao',
-  name: 'Napoleão',
-  description: 'Massa folha recheada de peito de peru e queijo branco.',
+  id: 'sa_folhado unitário',
+  name: 'Folhado unitário',
+  description: 'Massa folha recheada de peito de peru e queijo branco, chapéu de napoleão ou trouxão de frango .',
   category: 'Salgados assados',
   image: 'https://images.unsplash.com/photo-1604908177453-7462950a6a8a?auto=format&fit=crop&q=80&w=900',
   price: 8.50,
   priceKg: 59.00,
-  units: ['un', 'kg']
-},
-        {
-  id: 'sa_trouxao',
-  name: 'Trouxão de frango',
-  description: 'Massa folha recheada de frango com catupiry.',
-  category: 'Salgados assados',
-  image: 'https://res.cloudinary.com/ds53z2vv8/image/upload/v1770845316/WhatsApp_Image_2026-02-11_at_15.40.56_m2l73i.jpg',
-  price: 8.50,
-  priceKg: 59.00,
+  flavors: ['Napoleão - Peito de peru e queijo branco', 'Truxão de frango'],
   units: ['un', 'kg']
 },
 {
@@ -801,7 +773,7 @@
 // DOCES PANIFICAÇÃO
 // =====================
 {
-  id: 'dp_bisnaguinha_glace',
+  id: 'dp_paodoce',
   name: 'Bisnaguinha com Glacê',
   description: 'Pão doce com açúcar derretido por cima.',
   category: 'Doces panificação',
@@ -844,8 +816,8 @@
 },
 {
   id: 'dp_croissant_doce_mini',
-  name: 'Croissant Doce Mini',
-  description: 'Croissant doce mini recheado.',
+  name: 'Croissant Doce',
+  description: 'Croissant doce recheado.',
   category: 'Doces panificação',
   image: 'https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&q=80&w=900',
   price: 4.00,
@@ -979,13 +951,17 @@
 },
 {
   id: 'dp_samantha',
-  name: 'Samantha',
-  description: 'Massa de carolina em formato de rosquinha, polvilhada no açúcar.',
+  name: 'Samantha & Carolinas Cristalizadas',
+  description: 'Massa de carolina, polvilhada no açúcar.',
   category: 'Doces panificação',
   image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&q=80&w=900',
   price: 5.50,
   priceKg: 60.00,
-  units: ['un', 'kg']
+  units: ['un', 'kg'],
+    sizes: [
+                    { label: 'Carolinas', price: 2.00 },
+                    { label: 'Samantha', price: 5.50 }
+                ]
 },
 {
   id: 'dp_bem_casado',

@@ -802,60 +802,35 @@
   description: 'Escolha a massa e o recheio.',
   category: 'Doces panificação',
 
-  // imagem inicial (vai trocar pelo variant)
   image: 'https://res.cloudinary.com/ds53z2vv8/image/upload/v1771019901/IMG_2639_h3sq1a.jpg',
 
-  // preço base (vai ser sobrescrito pelo variant quando precisar)
   price: 4.50,
   priceKg: 52.00,
   units: ['un', 'kg'],
 
-  // 1 select só (do jeito que teu sistema suporta hoje)
+  // RECHEIOS
   flavors: [
-    'Tradicional • Coco c/ Leite Condensado',
-    'Tradicional • Frutas Cristalizadas',
-    'Folhado • Coco c/ Leite Condensado',
-    'Folhado • Frutas Cristalizadas'
+    'Coco com Leite Condensado',
+    'Frutas Cristalizadas'
   ],
 
-  variants: {
-    'Tradicional • Coco c/ Leite Condensado': {
+  // MASSA (vira os botões)
+  sizes: [
+    {
+      label: 'Tradicional',
       price: 4.50,
       priceKg: 52.00,
-      description: 'Massa tradicional de pão doce recheada com coco e leite condensado.',
-      images: [
-        'https://res.cloudinary.com/ds53z2vv8/image/upload/v1771019901/IMG_2639_h3sq1a.jpg'
-      ]
+      description: 'Massa tradicional de pão doce.'
     },
-
-    'Tradicional • Frutas Cristalizadas': {
-      price: 4.50,
-      priceKg: 52.00,
-      description: 'Massa tradicional de pão doce recheada com frutas cristalizadas.',
-      images: [
-        'https://res.cloudinary.com/ds53z2vv8/image/upload/v1771019901/IMG_2639_h3sq1a.jpg'
-      ]
-    },
-
-    'Folhado • Coco c/ Leite Condensado': {
+    {
+      label: 'Folhado',
       price: 4.50,
       priceKg: 68.00,
-      description: 'Massa folhada doce recheada com coco e leite condensado.',
-      images: [
-        'https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&q=80&w=900'
-      ]
-    },
-
-    'Folhado • Frutas Cristalizadas': {
-      price: 4.50,
-      priceKg: 68.00,
-      description: 'Massa folhada doce recheada com frutas cristalizadas.',
-      images: [
-        'https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&q=80&w=900'
-      ]
+      description: 'Massa folhada doce, mais leve e crocante.'
     }
-  }
+  ]
 },
+
 
 {
   id: 'dp_croissant_doce_mini',

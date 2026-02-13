@@ -2233,7 +2233,14 @@ if (flavorData) {
           // se horário estiver vazio, sugere um padrão
           if (!timeInput.value) timeInput.value = "08:00";
         }
-            const sanitizeId = (name) => name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+            function sanitizeId(name) {
+  return name
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "");
+}
    
     // ======= GALERIA DE IMAGENS POR ITEM =======
 const imageIndexById = {}; // { [itemId]: currentIndex }

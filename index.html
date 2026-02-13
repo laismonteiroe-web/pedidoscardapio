@@ -1917,8 +1917,7 @@
                             <div class="space-y-2">
                                 <label class="text-[9px] font-black uppercase tracking-widest text-[#9E764E]">Sabor/Tipo</label>
                                 <select id="flavor-${item.id}" onchange="onFlavorChange('${item.id}')" class="w-full bg-[#F3EEE8] border border-[#9E764E]/10 rounded-xl px-4 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-[#9E764E]/20 appearance-none text-[#241B15]">
-                                    ${item.flavors.map(f => `<option value="${f}">${f}</option>`).join('')}
-                                </select>
+${getFlavorList(item).map(f => `<option value="${f.label}">${f.label}</option>`).join('')}                                </select>
                             </div>
                             ` : ''}
 
@@ -1973,6 +1972,12 @@
   selectedBtn.classList.remove('text-[#9E764E]/60');
 
   updatePricePreview(id);
+            const flavorData = getSelectedFlavorData(id);
+if (flavorData) {
+  if (unit === 'kg' && typeof flavorData.priceKg === 'number') price = flavorData.priceKg;
+  if (unit !== 'kg' && typeof flavorData.price === 'number') price = flavorData.price;
+}
+
 
   // atualizar imagem ao trocar tamanho
   const item = MENU_ITEMS.find(i => i.id === id);
@@ -2259,7 +2264,41 @@ function onFlavorChange(id) {
     delete item.image;           // opcional: evita conflito com item.image
     imageIndexById[id] = 0;      // reseta pra primeira foto
     setImage(id, 0);             // atualiza imagem + bolinhas
-  } }
+  }
+    function onFlavorChange(id) {
+  const item = MENU_ITEMS.find(i => i.id === id);
+  if (!item) return;
+
+  const select = document.getElementById(`flavor-${id}`);
+  const flavor = select ? select.value : null;
+  if (!flavor) return;
+
+  // ✅ 1) Se tiver variants (seu sistema atual), usa elas
+  if (item.variants && item.variants[flavor]) {
+    const variant = item.variants[flavor];
+
+    // descrição
+    const descEl = document.getElementById(`desc-${id}`);
+    if (descEl && variant.description) descEl.textContent = variant.description;
+
+    // imagens
+    const newImages = (variant.images && variant.images.length)
+      ? variant.images
+      : (variant.image ? [variant.image] : null);
+
+    if (newImages && newImages.length) {
+      item.images = newImages;
+      delete item.image;
+      imageIndexById[id] = 0;
+      setImage(id, 0);
+    }
+  }
+
+  // ✅ 2) SEMPRE atualiza preço/preview quando trocar sabor
+  updatePricePreview(id);
+}
+
+}
 
 
 function setImage(id, idx) {
@@ -2298,7 +2337,22 @@ function prevImage(id) {
   const prev = (cur - 1 + imgs.length) % imgs.length;
   setImage(id, prev);
 }
-    
+   function getFlavorList(item) {
+  // suporta flavors como string[] ou {label, price, priceKg, image, description}[]
+  return (item.flavors || []).map(f => (typeof f === 'string' ? { label: f } : f));
+}
+
+function getSelectedFlavorData(id) {
+  const item = MENU_ITEMS.find(i => i.id === id);
+  if (!item) return null;
+
+  const select = document.getElementById(`flavor-${id}`);
+  if (!select) return null;
+
+  const list = getFlavorList(item);
+  return list.find(f => f.label === select.value) || null;
+}
+ 
     
     
     

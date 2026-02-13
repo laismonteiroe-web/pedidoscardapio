@@ -2250,42 +2250,17 @@ function onFlavorChange(id) {
 
   const select = document.getElementById(`flavor-${id}`);
   const flavor = select ? select.value : null;
-
-  // se não tiver variante, não faz nada
-  if (!item.variants || !flavor || !item.variants[flavor]) return;
-
-  const variant = item.variants[flavor];
-
-  // 1) troca descrição no card
-  const descEl = document.getElementById(`desc-${id}`);
-  if (descEl && variant.description) descEl.textContent = variant.description;
-
-  // 2) troca imagens do item (suporta variant.images ou variant.image)
-  const newImages = (variant.images && variant.images.length)
-    ? variant.images
-    : (variant.image ? [variant.image] : null);
-
-  if (newImages && newImages.length) {
-    item.images = newImages;     // passa a valer pro getItemImages()
-    delete item.image;           // opcional: evita conflito com item.image
-    imageIndexById[id] = 0;      // reseta pra primeira foto
-    setImage(id, 0);             // atualiza imagem + bolinhas
-  }
-  function onFlavorChange(id) {
-  const item = MENU_ITEMS.find(i => i.id === id);
-  if (!item) return;
-
-  const select = document.getElementById(`flavor-${id}`);
-  const flavor = select ? select.value : null;
   if (!flavor) return;
 
   // Se usar variants (descrição/imagens por sabor)
   if (item.variants && item.variants[flavor]) {
     const variant = item.variants[flavor];
 
+    // 1) descrição
     const descEl = document.getElementById(`desc-${id}`);
     if (descEl && variant.description) descEl.textContent = variant.description;
 
+    // 2) imagens
     const newImages = (variant.images && variant.images.length)
       ? variant.images
       : (variant.image ? [variant.image] : null);
@@ -2298,9 +2273,10 @@ function onFlavorChange(id) {
     }
   }
 
-  // ✅ sempre atualiza preço
+  // 3) preço (flavorData)
   updatePricePreview(id);
 }
+
 
 
 }

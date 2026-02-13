@@ -2319,6 +2319,13 @@ function onFlavorChange(id) {
 
   // 3) preço (flavorData)
   updatePricePreview(id);
+    // atualizar preço se a variante tiver preço próprio
+if (variant.price) {
+  const priceEl = document.getElementById(`price-${id}`);
+  if (priceEl) {
+    priceEl.innerText = `R$ ${variant.price.toFixed(2).replace('.', ',')}`;
+  }
+}
 }
 
 

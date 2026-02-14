@@ -318,16 +318,71 @@
                     { id: 'sa1', multiplier: 1 }
                 ]
             },
-            { 
-                id: 'salagadinhofrito', 
-                name: 'Salgadinhos Fritos', 
-                description: 'Coxinhas, bolinhas de queijo gourmet e kibes tradicionais.', 
-                category: 'Mini salgados', 
-                image: 'https://images.unsplash.com/photo-1541544741938-0af808891cc5?auto=format&fit=crop&q=80&w=400', 
-                price: 1.20, 
-                units: ['un'],
-                flavors: ['Coxinha', 'Bolinha de Queijo', 'Risólis de Milho', 'Kibe Tradicional']
-            },
+            {
+  id: 'ms_fritos_variados',
+  name: 'Fritos Variados',
+  description: 'Escolha o tipo do salgado frito mini.',
+  category: 'Mini salgados',
+
+  image: 'https://images.unsplash.com/photo-1541544741938-0af808891cc5?auto=format&fit=crop&q=80&w=900',
+
+  price: 1.20,
+  units: ['un'],
+
+  flavors: [
+    'Pastelzinho de Carne',
+    'Pastelzinho de Frango',
+    'Pastelzinho de Palmito',
+    'Pastelzinho de Queijo',
+    'Coxinha',
+    'Bolinha de Queijo',
+    'Risólis de Milho',
+    'Kibe Tradicional'
+  ],
+
+  variants: {
+    'Pastelzinho de Carne': {
+      price: 2.20,
+      description: 'Pastelzinho mini de carne, crocante e sequinho.',
+      images: ['https://images.unsplash.com/photo-1604908554027-94b7e7d28d57?auto=format&fit=crop&q=80&w=900']
+    },
+    'Pastelzinho de Frango': {
+      price: 2.20,
+      description: 'Pastelzinho mini de frango, crocante e sequinho.',
+      images: ['https://images.unsplash.com/photo-1604908554027-94b7e7d28d57?auto=format&fit=crop&q=80&w=900']
+    },
+    'Pastelzinho de Palmito': {
+      price: 2.20,
+      description: 'Pastelzinho mini de palmito.',
+      images: ['https://images.unsplash.com/photo-1604908554027-94b7e7d28d57?auto=format&fit=crop&q=80&w=900']
+    },
+    'Pastelzinho de Queijo': {
+      price: 2.20,
+      description: 'Pastelzinho mini de queijo.',
+      images: ['https://images.unsplash.com/photo-1604908554027-94b7e7d28d57?auto=format&fit=crop&q=80&w=900']
+    },
+    'Coxinha': {
+      price: 1.20,
+      description: 'Coxinha tradicional bem temperada.',
+      images: ['https://images.unsplash.com/photo-1541544741938-0af808891cc5?auto=format&fit=crop&q=80&w=900']
+    },
+    'Bolinha de Queijo': {
+      price: 1.20,
+      description: 'Bolinha de queijo douradinha.',
+      images: ['https://images.unsplash.com/photo-1541544741938-0af808891cc5?auto=format&fit=crop&q=80&w=900']
+    },
+    'Risólis de Milho': {
+      price: 1.20,
+      description: 'Risólis crocante por fora e cremoso por dentro.',
+      images: ['https://images.unsplash.com/photo-1541544741938-0af808891cc5?auto=format&fit=crop&q=80&w=900']
+    },
+    'Kibe Tradicional': {
+      price: 1.20,
+      description: 'Kibe tradicional sequinho.',
+      images: ['https://images.unsplash.com/photo-1541544741938-0af808891cc5?auto=format&fit=crop&q=80&w=900']
+    }
+  }
+},
             { 
                 id: 'paodequeijo', 
                 name: 'Pão de queijo', 
@@ -370,15 +425,6 @@
             // =====================
 // MINI SALGADOS
 // =====================
-{
-  id: 'ms_pastelzinho',
-  name: 'Pastelzinho Frito',
-  description: 'Pastelzinho mini, crocante e sequinho.',
-  category: 'Mini salgados',
-  image: 'https://images.unsplash.com/photo-1604908554027-94b7e7d28d57?auto=format&fit=crop&q=80&w=900',
-  price: 2.20,
-  units: ['un']
-},
 {
   id: 'ms_pao_mandioquinha',
   name: 'Pão de Mandioquinha',
@@ -547,37 +593,65 @@
   flavors: ['Brócolis + Queijo', 'Antepasto de Berinjela + Queijo', 'Escarola com Bacon + Queijo', 'Espinafre + Queijo']
 },
 {
-  id: 'sa_croissant_grande',
-  name: 'Croissant',
-  description: 'Croissant recheado, massa folhada leve.',
+  id: 'sa_folhados_grandes',
+  name: 'Folhados Grandes',
+  description: 'Folhados assados recheados — escolha o formato e o recheio.',
   category: 'Salgados assados',
+
   image: 'https://res.cloudinary.com/ds53z2vv8/image/upload/v1770052073/2E2F5179-ADCC-479F-BAC2-FDE22D0B3276_jihnsy.png',
+
   price: 9.50,
-  priceKg: 65.00,
-  units: ['un', 'kg'],
-  flavors: ['Presunto e Queijo', 'Frango', 'Queijo', 'Peito de Peru']
-},
-{
-  id: 'sa_folhado_unitario',
-  name: 'Folhado unitário',
-  description: 'Massa folha recheada de peito de peru e queijo branco, chapéu de napoleão ou trouxão de frango.',
-  category: 'Salgados assados',
-  image: 'https://images.unsplash.com/photo-1604908177453-7462950a6a8a?auto=format&fit=crop&q=80&w=900',
-  price: 8.50,
-  priceKg: 59.00,
-  units: ['un', 'kg'],
-  flavors: ['Napoleão', 'Trouxão de frango'],
+  units: ['un'],
+
+  flavors: [
+    'Croissant Presunto e Queijo',
+    'Croissant Frango',
+    'Croissant Queijo',
+    'Croissant Peito de Peru',
+    'Napoleão (Peito de peru e queijo branco)',
+    'Trouxão de Frango'
+  ],
+
   variants: {
-    'Napoleão': {
-      description: 'Folhado de peito de peru e queijo branco',
-      images: ['URL_PRESUNTO_1', 'URL_PRESUNTO_2']
+
+    'Croissant Presunto e Queijo': {
+      price: 9.50,
+      description: 'Croissant grande recheado de presunto e queijo.',
+      images: ['https://res.cloudinary.com/ds53z2vv8/image/upload/v1770052073/2E2F5179-ADCC-479F-BAC2-FDE22D0B3276_jihnsy.png']
     },
-    'Trouxão de frango': {
-      description: 'Folhado de frango com tempero caseiro.',
-      images: ['URL_FRANGO_1', 'URL_FRANGO_2']
+
+    'Croissant Frango': {
+      price: 9.50,
+      description: 'Croissant grande recheado de frango temperado.',
+      images: ['https://res.cloudinary.com/ds53z2vv8/image/upload/v1770052073/2E2F5179-ADCC-479F-BAC2-FDE22D0B3276_jihnsy.png']
+    },
+
+    'Croissant Queijo': {
+      price: 9.50,
+      description: 'Croissant grande recheado de queijo.',
+      images: ['https://res.cloudinary.com/ds53z2vv8/image/upload/v1770052073/2E2F5179-ADCC-479F-BAC2-FDE22D0B3276_jihnsy.png']
+    },
+
+    'Croissant Peito de Peru': {
+      price: 9.50,
+      description: 'Croissant grande recheado de peito de peru.',
+      images: ['https://res.cloudinary.com/ds53z2vv8/image/upload/v1770052073/2E2F5179-ADCC-479F-BAC2-FDE22D0B3276_jihnsy.png']
+    },
+
+    'Napoleão (Peito de peru e queijo branco)': {
+      price: 8.50,
+      description: 'Folhado tipo napoleão recheado de peito de peru e queijo branco.',
+      images: ['https://images.unsplash.com/photo-1604908177453-7462950a6a8a?auto=format&fit=crop&q=80&w=900']
+    },
+
+    'Trouxão de Frango': {
+      price: 8.50,
+      description: 'Folhado grande de frango com tempero caseiro.',
+      images: ['https://images.unsplash.com/photo-1604908177453-7462950a6a8a?auto=format&fit=crop&q=80&w=900']
     }
   }
 },
+
 
 {
   id: 'sa_pizza_enrolada',

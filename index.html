@@ -2315,6 +2315,7 @@ if (!item.sizes && selectedFlavor && item.variants && item.variants[selectedFlav
             const item = MENU_ITEMS.find(i => i.id === id);
             const qty = parseFloat(document.getElementById('qty-' + id).value);
             const flavor = document.getElementById('flavor-' + id) ? document.getElementById('flavor-' + id).value : null;
+            const unit = getSelectedUnit(id);
             let size = null;
             let price = item.price;
 
@@ -2330,8 +2331,19 @@ if (!item.sizes && selectedFlavor && item.variants && item.variants[selectedFlav
                     if (subItem) addIndividualToCart(subItem.id, 'un', Math.ceil(qty * comp.multiplier), null, null);
                 });
             } else {
-                const unit = getSelectedUnit(id);
                 if (unit === 'kg') price = item.priceKg;
+                // 🔥 aplicar preço do sabor (variant)
+if (!item.sizes && flavor && item.variants && item.variants[flavor]) {
+    const v = item.variants[flavor];
+
+    if (unit === 'kg' && typeof v.priceKg === 'number') {
+        price = v.priceKg;
+    }
+
+    if (unit !== 'kg' && typeof v.price === 'number') {
+        price = v.price;
+    }
+}
                 addIndividualToCart(id, unit, qty, flavor, size, price);
             }
             updateCartSummary();

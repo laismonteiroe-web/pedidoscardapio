@@ -301,14 +301,61 @@
         ];
         
         const MENU_ITEMS = [
-            { 
-                id: 'cst1', 
-                name: 'Cesta Amarela', 
-                description: 'Recomendado para 2 pessoas. Contém 4 lanchinhos no pão de batata, 6 mini croissants, 2 quiches unitários, 12 pães de queijo, 4 mini sonho, 2 muffin de cenoura com chocolate, 2 sucos natural one de 180ml', 
-                category: 'Cestas de café da manhã', 
-                image: 'https://res.cloudinary.com/ds53z2vv8/image/upload/v1771093168/IMG_2877_fzpqwi.jpg', 
-                price: 135.00, 
-                units: ['un'] },
+           {
+  id: 'cst1',
+  name: 'Cestas de café da manhã',
+  description: 'Selecione a cesta desejada.',
+  category: 'Cestas de café da manhã',
+
+  // imagem inicial (aparece ao abrir o card)
+  image: 'https://res.cloudinary.com/ds53z2vv8/image/upload/v1771101927/ChatGPT_Image_14_de_fev._de_2026_17_44_44_bzfrbk.png',
+
+  price: 135.00,
+  units: ['un'],
+
+  flavors: [
+    'Cesta Amarela',
+    'Cesta Violeta',
+    'Cesta Laranja',
+    'Cesta Azul'
+  ],
+
+  variants: {
+
+    'Cesta Amarela': {
+      price: 135.00,
+      description: 'Recomendado para 2 pessoas. Contém 4 lanchinhos no pão de batata, 6 mini croissants, 2 quiches unitários, 12 pães de queijo, 4 mini sonhos, 2 muffins de cenoura com chocolate e 2 sucos Natural One 180ml.',
+      images: [
+        'https://res.cloudinary.com/ds53z2vv8/image/upload/v1771101927/ChatGPT_Image_14_de_fev._de_2026_17_44_44_bzfrbk.png'
+      ]
+    },
+
+    'Cesta Violeta': {
+      price: 233.00,
+      description: 'Recomendado para 3 pessoas. Contém 6 mini lanches naturais, 6 mini pizzas, 12 mini pães de queijo, 3 brownies, 6 mini sonhos, 3 brigadeiros gourmet, 3 cappuccinos e 3 iogurtes.',
+      images: [
+        'https://res.cloudinary.com/ds53z2vv8/image/upload/v1771101960/ChatGPT_Image_14_de_fev._de_2026_17_44_39_a074yn.png'
+      ]
+    },
+
+    'Cesta Laranja': {
+      price: 321.00,
+      description: 'Recomendado para 4 a 6 pessoas. Contém 1 pão de bolinha doce, 20 mini docinhos, 20 mini croissants, 30 mini pães de queijo, 15 mini pizzas, 1 bolo confeitado 500g, 1 suco Natural One 900ml e 1 água de coco 1L.',
+      images: [
+        'https://res.cloudinary.com/ds53z2vv8/image/upload/v1771101949/ChatGPT_Image_14_de_fev._de_2026_17_44_49_k28rx9.png'
+      ]
+    },
+
+    'Cesta Azul': {
+      price: 0.00,
+      description: 'Cesta azul (adicione a descrição quando definir o conteúdo).',
+      images: [
+        'COLE_AQUI_O_LINK_DA_IMAGEM_DA_CESTA_AZUL'
+      ]
+    }
+
+  }
+},
             { 
                 id: 'cb1', 
                 name: 'Coffee Simples', 

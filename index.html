@@ -128,6 +128,12 @@
             overscroll-behavior: contain;
             -webkit-overflow-scrolling: touch;
         }
+        
+        /* Fonte só da busca */
+#search-input,
+#search-input::placeholder {
+  font-family: 'Lora', serif !important;
+}
     </style>
 </head>
 <body class="relative min-h-screen">
@@ -166,7 +172,7 @@
         <div class="max-w-2xl mx-auto p-6">
             <div class="relative group">
                 <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-[#9E764E]"></i>
-                <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="Encontre sua delícia preferida..." class="w-full pl-14 pr-6 py-5 bg-white/80 border border-[#9E764E]/20 rounded-3xl focus:outline-none focus:ring-4 focus:ring-[#9E764E]/10 italic shadow-inner text-lg transition-all">
+                <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="Encontre a sua delícia preferida..." class="w-full pl-14 pr-6 py-5 bg-white/80 border border-[#9E764E]/20 rounded-3xl focus:outline-none focus:ring-4 focus:ring-[#9E764E]/10 italic shadow-inner text-lg transition-all">
             </div>
         </div>
     </div>
